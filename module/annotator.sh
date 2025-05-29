@@ -29,11 +29,11 @@ done
 SCRIPT_DIR=$(dirname "$0")
 
 echo "Running NLR-Annotator..."
-java -jar "$SCRIPT_DIR/NLR-Annotator-v2.1b.jar" \
+java -jar "$SCRIPT_DIR/NLR-Annotator/NLR-Annotator-v2.1b.jar" \
     -i "$GENOME_FA" \
-    -x "$SCRIPT_DIR/mot.txt" \
+    -x "$SCRIPT_DIR/NLR-Annotator/src/mot.txt" \
     -t "$THREADS" \
-    -y "$SCRIPT_DIR/store.txt" \
+    -y "$SCRIPT_DIR/NLR-Annotator/src/store.txt" \
     -o "./${PREFIX}.nlr.txt" \
     -g "./${PREFIX}.nlr.gff" 
 
