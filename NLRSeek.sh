@@ -5,21 +5,25 @@ function usage {
   cat <<EOM
 Example: ./NLRSeek.sh -g genome.fasta -a annotation.gff -o test
 
-Usage: $(basename "$0") [OPTION]...
+Usage: NLRSeek.sh [OPTION]...
+
   -h                               Display help
+  
   (required)
+  
   -g GenomeFilepath                File path to your genome file (.fasta)
-                   
+
   -a AnnotationFilepath            File path to annotation file (.gff)
 
   -o String                        Directory name to save output
 
   (optional)
+
+  -n cpus                          Numbers of cpus, default: 4
   
-  -n cpus                          Numbers of cpus
   -c cDNAFilepath                  File path to cDNA file (.fasta) ; it can be created by gffread
-  -f prefix                        The prefix of the output file
-                                   Default: "Seek"
+  
+  -f prefix                        The prefix of the output file, default: "Seek"
 EOM
   exit 2 
 }
