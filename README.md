@@ -123,8 +123,11 @@ wholegff="$(realpath "$outdir/data/whole.gff")"
 gffread  "$wholegff"  -g  "$wholedna"  -y  "$outdir/data/whole.pep.fasta"
 wholepep="$(realpath "$outdir/data/whole.pep.fasta")"
 
-gffread  "$wholegff"  -g  "$wholedna"  -x  "$outdir/data/whole.cdna.fasta"  
+gffread  "$wholegff"  -g  "$wholedna"  -w  "$outdir/data/whole.cdna.fasta"  
 wholecdna="$(realpath "$outdir/data/whole.cdna.fasta")"
+
+gffread  "$wholegff"  -g  "$wholedna"  -x  "$outdir/data/whole.cds.fasta"  
+wholecds="$(realpath "$outdir/data/whole.cds.fasta")"
 ```
 ###	Step 2:  Search NLR loc
 ```
@@ -189,7 +192,7 @@ python ${dir_name}/module/addpep.py $wholepep whole_addgff.tsv whole_addgffpep.t
 python ${dir_name}/module/addpep.py $outdir/data/${prefix}.NLR.pep.fa ann_addgff.tsv ann_addgffpep.tsv
 
 #  Add CDS suquences
-python ${dir_name}/module/addcds.py $wholecdna whole_addgffpep.tsv whole_addgffpepcds.tsv
+python ${dir_name}/module/addcds.py $wholecds whole_addgffpep.tsv whole_addgffpepcds.tsv
 python ${dir_name}/module/addcds.py $outdir/data/${prefix}.NLR.cds.fa  ann_addgffpep.tsv ann_addgffpepcds.tsv
 
 #  Check codons
