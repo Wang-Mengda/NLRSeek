@@ -166,13 +166,15 @@ wholepep="$(realpath "$outdir/data/whole.pep.fasta")"
 #wholepep="$(realpath "$outdir/data/whole.pep.fasta")"
 
 if [ -z "$FLG_C" ]; then
-  gffread "$wholegff" -g "$wholedna" -x "$outdir/data/whole.cdna.fasta" || { echo "gffread failed"; exit 1; }
+  gffread "$wholegff" -g "$wholedna" -w "$outdir/data/whole.cdna.fasta" || { echo "gffread failed"; exit 1; }
   wholecdna="$outdir/data/whole.cdna.fasta"
 else
   cp "$wholecdna" "$outdir/data/whole.cdna.fasta"
   wholecdna="$(realpath "$outdir/data/whole.cdna.fasta")"
 fi
 
+gffread  "$wholegff"  -g  "$wholedna"  -x  "$outdir/data/whole.cds.fasta"  
+wholecds="$(realpath "$outdir/data/whole.cds.fasta")"
 
 #  1.Search NLR loc
 
@@ -236,7 +238,7 @@ python ${dir_name}/module/addgff.py ann_choose.tsv $outdir/data/${prefix}.NLR.gf
 python ${dir_name}/module/addpep.py $wholepep whole_addgff.tsv whole_addgffpep.tsv
 python ${dir_name}/module/addpep.py $outdir/data/${prefix}.NLR.pep.fa ann_addgff.tsv ann_addgffpep.tsv
 
-python ${dir_name}/module/addcds.py $wholecdna whole_addgffpep.tsv whole_addgffpepcds.tsv
+python ${dir_name}/module/addcds.py $wholecds whole_addgffpep.tsv whole_addgffpepcds.tsv
 python ${dir_name}/module/addcds.py $outdir/data/${prefix}.NLR.cds.fa  ann_addgffpep.tsv ann_addgffpepcds.tsv
 
 python ${dir_name}/module/checkATG.py ann_addgffpepcds.tsv ann_addgffpepcds_check.tsv
