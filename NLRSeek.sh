@@ -65,7 +65,7 @@ while getopts ":g:a:c:p:o:f:n:h" optKey; do
       ;;
     a)
       if [ -f ${OPTARG} ]; then
-        echo "Annotation gff file   = ${OPTARG}"
+        echo "Annotation gff file  = ${OPTARG}"
         wholegff=${OPTARG}
         FLG_A=1
       else
