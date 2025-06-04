@@ -194,14 +194,14 @@ cd "$outdir/reannotation"
 mkdir -p snap augustus makernlr
 cd snap
 bash ${dir_name}/module/train_snap.sh -g $wholedna -a $wholegff -f $prefix
-cd "$outdir/augustus"
+cd "$outdir/reannotation/augustus"
 bash ${dir_name}/module/train_augustus.sh -g $wholedna -a $wholegff -f $prefix
-cd "$outdir/makernlr"
+cd "$outdir/reannotation/makernlr"
 
 echo -e "\nReannotating NLRs......"
 
 bash ${dir_name}/module/reannotation.sh -c $wholecdna -n $cpus -f $prefix
-cp gff2ann/${prefix}.NLR.gff gff2ann/${prefix}.NLR.pep.fa gff2ann/${prefix}.NLR.cds.fa $outdir/data
+cp "$outdir/reannotation/makernlr/gff2ann/${prefix}.NLR.gff" "$outdir/reannotation/makernlr/gff2ann/${prefix}.NLR.pep.fa" "$outdir/reannotation/makernlr/gff2ann/${prefix}.NLR.cds.fa" $outdir/data
 cd $outdir
 
 echo -e "\nFinish reannotation!"
