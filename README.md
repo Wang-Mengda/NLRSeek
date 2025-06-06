@@ -178,6 +178,7 @@ cp $outdir/tracker/whole/${prefix}_whole/NLRtracker.tsv $outdir/summary/whole_NL
 ```
 ###	Step 5:  Merge and remove duplicates
 Default to the initial NLR, remove overlapping reannotated NLR. 
+This step is designed to accommodate protein sequence files generated from GFF files using `gffread`, as well as some user-provided GFF and protein sequence files. However, it may not be compatible with all GFF formats, so adjustments might be needed based on the input data.
 ```
 cd "$outdir/summary" 
 
