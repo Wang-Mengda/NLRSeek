@@ -41,6 +41,17 @@ sed -e "0,/est=/s|est=|est=${wholecdna}|" \
     -e "0,/cpus=1/s|cpus=1|cpus=${cpus}|" \
     maker_opts.ctl > tmp
 
+# write maker_opts.ctl in the simple model
+#sed -e "0,/est=/s|est=|est=${wholecdna}|" \
+#    -e "0,/protein=/s|protein=|protein=${dir_name}/homopep.fa|" \
+#    -e '0,/model_org=all/s|model_org=all|model_org=simple|' \
+#    -e "0,/snaphmm=/s|snaphmm=|snaphmm=${snaphmm}|" \
+#    -e "0,/augustus_species=/s|augustus_species=|augustus_species=${PREFIX}_Seeker|" \
+#    -e '0,/est2genome=0/s|est2genome=0|est2genome=1|' \
+#    -e '0,/protein2genome=0/s|protein2genome=0|protein2genome=1|' \
+#    -e "0,/cpus=1/s|cpus=1|cpus=${cpus}|" \
+#    maker_opts.ctl > tmp
+
 rm -rf maker_opts.ctl
 mv tmp maker_opts.ctl
 
