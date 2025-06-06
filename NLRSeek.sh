@@ -23,7 +23,7 @@ Usage: NLRSeek.sh [OPTION]...
   
   -c cDNAFilepath                  File path to cDNA file (.fasta) ; it can be created by gffread
   
-  -p ProteinFilepath                File path to Protein file (.fasta) ; it can be created by gffread
+  -p ProteinFilepath               File path to Protein file (.fasta) ; it can be created by gffread
   
   -f prefix                        The prefix of the output file, default: "Seek"
 EOM
