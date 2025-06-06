@@ -65,14 +65,16 @@ augustus --species=${PREFIX}_Seeker fixed_${PREFIX}.gb.evaluation >& first_evalu
 # Move previous validation files aside to avoid affecting results
 mkdir evaluation && mv fixed_${PREFIX}.gb.evaluation fixed_${PREFIX}.gb.retrain evaluation
 
+### ---------------------------------------------------------------------------------------------------------- ###
 ### Optimization model steps, extremely time-consuming but can improve model performance, please use as needed ###
+### ---------------------------------------------------------------------------------------------------------- ###
 
 # Randomly split out 1000 genes for the test set
-#randomSplit.pl fixed_${SPECIES_NAME}.gb 1000
+#randomSplit.pl fixed_${PREFIX}.gb 1000
 
 # Optimize the model, this step is extremely time-consuming
-#optimize_augustus.pl --species=${SPECIES_NAME}_Seeker --kfold=24 --cpus=8 --rounds=5 --onlytrain=fixed_${SPECIES_NAME}.gb.train fixed_${SPECIES_NAME}.gb.test
+#optimize_augustus.pl --species=${PREFIX}_Seeker --kfold=24 --cpus=4 --rounds=5 --onlytrain=fixed_${PREFIX}.gb.train fixed_${PREFIX}.gb.test
 
 # Retrain the optimized model and test again
-#etraining --species=${SPECIES_NAME}1 fixed_${SPECIES_NAME}.gb
-#augustus --species=${SPECIES_NAME}1 fixed_${SPECIES_NAME}.gb.test >& second_evaluate.out
+#etraining --species=${PREFIX}_Seeker fixed_${PREFIX}.gb
+#augustus --species=${PREFIX}_Seeker fixed_${PREFIX}.gb.test >& second_evaluate.out
