@@ -176,7 +176,7 @@ if [ -z "$FLG_P" ]; then
     rm -rf "$outdir/data/tmp.whole.pep.fasta"
     wholepep="$(realpath "$outdir/data/whole.pep.fasta")"
 else
-    sed '/^>/! s/[*.]//g' "$wholepep" "$outdir/data/whole.pep.fasta"
+    sed '/^>/! s/[*.]//g' "$wholepep" > "$outdir/data/whole.pep.fasta"
     wholepep="$(realpath "$outdir/data/whole.pep.fasta")"
 fi
 
