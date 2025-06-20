@@ -121,6 +121,12 @@ wholedna="$(realpath "$outdir/data/whole.dna.fasta")"
 cp  "$wholegff"  "$outdir/data/whole.gff"
 wholegff="$(realpath "$outdir/data/whole.gff")"
 
+#  GFF files with trans-spliced genes, when containing '?' characters, can cause gffread to generate erroneous output. The provided code can resolve this.
+#cp "$wholegff" "$outdir/data/tmp.whole.gff"
+#sed 's/\t?\t/\t.\t/' "$outdir/data/tmp.whole.gff" > "$outdir/data/whole.gff"
+#rm -rf "$outdir/data/tmp.whole.gff"
+#wholegff="$(realpath "$outdir/data/whole.gff")"
+
 # Generate files
 gffread  "$wholegff"  -g  "$wholedna"  -y  "$outdir/data/whole.pep.fasta"
 wholepep="$(realpath "$outdir/data/whole.pep.fasta")"
