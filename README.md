@@ -195,7 +195,7 @@ python ${dir_name}/module/sum.py
 
 #  Add gff information
 python ${dir_name}/module/addgff.py whole.tsv $wholegff whole_addgff.tsv
-python ${dir_name}/module/addgff.py ann_choose.tsv $outdir/data/${prefix}.NLR.gff ann_addgff.tsv
+python ${dir_name}/module/addgff.py ann.tsv $outdir/data/${prefix}.NLR.gff ann_addgff.tsv
 
 #  Add protein suquences
 python ${dir_name}/module/addpep.py $wholepep whole_addgff.tsv whole_addgffpep.tsv
