@@ -262,7 +262,7 @@ cp $outdir/tracker/whole/${prefix}_whole/NLRtracker.tsv $outdir/summary/whole_NL
 python ${dir_name}/module/sum.py
 #add information
 python ${dir_name}/module/addgff.py whole.tsv $wholegff whole_addgff.tsv
-python ${dir_name}/module/addgff.py ann_choose.tsv $outdir/data/${prefix}.NLR.gff ann_addgff.tsv
+python ${dir_name}/module/addgff.py ann.tsv $outdir/data/${prefix}.NLR.gff ann_addgff.tsv
 
 python ${dir_name}/module/addpep.py $wholepep whole_addgff.tsv whole_addgffpep.tsv
 python ${dir_name}/module/addpep.py $outdir/data/${prefix}.NLR.pep.fa ann_addgff.tsv ann_addgffpep.tsv
