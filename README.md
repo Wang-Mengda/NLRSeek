@@ -6,7 +6,7 @@ We provide a plant NLR gene identification tool optimized for non-model plant sp
 It's a pipeline to be run on unix based machines. The following software must be available.
 NLRtracker and NLR-Annotator should be placed in specific locations.
 ```
-git clone https://github.com/learning666666/NLRSeek.git
+git clone https://github.com/Wang-Mengda/NLRSeek.git
 cd NLRSeek
 git clone https://github.com/slt666666/NLRtracker.git
 cd module
