@@ -229,4 +229,8 @@ Special thanks to the following projects for their inspiration and code referenc
  -	[**HRP**](https://github.com/AndolfoG/HRP) 
   -	[**PotatoPanNLRome**](https://github.com/HongboDoll/PotatoPanNLRome) 
   
+## Contact
+Thank you for your interest in **NLRSeek**!  
+If you have any questions, suggestions, or collaboration ideas, feel free to reach out:
 
+Email: Mengda Wang (2023122009@stu.njau.edu.cn)
