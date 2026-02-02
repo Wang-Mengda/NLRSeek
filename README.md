@@ -148,6 +148,7 @@ bash ${dir_name}/module/annotator.sh -g $wholedna -n $cpus -f $prefix
 ```
 ###	Step 3:  Training model and reannotation
 If you wish to enhance the performance of the AUGUSTUS training model, you may uncomment the lines following line 68 in the `train_augustus.sh` script. These additional steps can lead to better model accuracy in some cases. To further improve annotation quality, consider tuning parameters — such as model_org and the amount of intergenic sequence included on each side of a gene — in `reannotation.sh` and `train_snap.sh`, based on your species or the characteristics of your dataset. And you can enhance the annotation accuracy by adding known NLR sequences from your study species and its related species. The specific path to add these is: `/your/path/to/NLRSeek/module/homopep.fa`. Please note: do not change the filename.
+Some files are not suitable for snap. If you encounter an error, please comment out lines 224, 225 of snap related code in NLRSeek.sh and lines 37 of reinterpretation.sh to skip snap. 
 ```
 cd "$outdir/reannotation"
 mkdir -p snap augustus makernlr
